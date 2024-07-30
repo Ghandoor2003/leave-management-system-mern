@@ -1,19 +1,22 @@
 import express from 'express';
-import {
-  createLeaveRequest,
-  getAllLeaveRequests,
-  getLeaveRequestById,
-  updateLeaveRequestStatus,
-  deleteLeaveRequest
-} from '../controllers/leaveController.js';
+import { approveLeaveRequest, refuseLeaveRequest ,getLeaveRequestsByUser, createLeaveRequest, getAllLeaveRequests, getLeaveRequestById, updateLeaveRequest, deleteLeaveRequest } from '../controllers/leaveController.js';
 import authMiddleware from '../middleware/authMiddleware.js';
 
 const router = express.Router();
 
-router.post('/', authMiddleware(), createLeaveRequest);
-router.get('/', authMiddleware(['admin']), getAllLeaveRequests);
-router.get('/:id', authMiddleware(), getLeaveRequestById);
-router.put('/:id/status', authMiddleware(['admin']), updateLeaveRequestStatus);
-router.delete('/:id', authMiddleware(['admin']), deleteLeaveRequest);
+// Define routes
+router.post('/', authMiddleware(['employee' , 'admin']), createLeaveRequest);
+
+router.get('/', authMiddleware(['employee']), getLeaveRequestsByUser);
+router.get('/admin', authMiddleware(['admin']), getAllLeaveRequests);
+
+router.get('/:id', authMiddleware(['employee', 'admin']), getLeaveRequestById);
+router.put('/:id', authMiddleware(['employee']), updateLeaveRequest);
+router.delete('/:id', authMiddleware(['employee']), deleteLeaveRequest);
+
+
+router.put('/:id/approve', authMiddleware(['admin']),approveLeaveRequest);
+router.put('/:id/refuse', authMiddleware(['admin']), refuseLeaveRequest);
+
 
 export default router;

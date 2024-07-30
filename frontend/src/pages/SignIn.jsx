@@ -16,11 +16,13 @@ const SignIn = () => {
         },
         body: JSON.stringify({ email, password }),
       });
+
       if (response.ok) {
-        // Handle successful authentication
+        const { token, role } = await response.json();
+        localStorage.setItem('token', token);
+        localStorage.setItem('role', role); // Store the user role
         navigate('/dashboard');
       } else {
-        // Handle error
         console.error('Failed to sign in');
       }
     } catch (error) {
