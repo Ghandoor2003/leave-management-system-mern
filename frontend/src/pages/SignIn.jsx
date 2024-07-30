@@ -62,10 +62,10 @@ const SignIn = () => {
               <input type="checkbox" className="form-checkbox" />
               <span className="ml-2 text-gray-700">Remember me</span>
             </label>
-            <a href="#" className="text-blue-500">Forgot password?</a>
+            <a href="#" className="text-green-700">Forgot password?</a>
           </div>
-          <button type="submit" className="w-full py-2 bg-blue-500 text-white rounded hover:bg-blue-600">Sign In</button>
-          <p className="mt-4 text-center">Don't have an account? <a href="/signup" className="text-blue-500">Sign Up</a></p>
+          <button type="submit" className="w-full py-2 bg-green-700 text-white rounded hover:bg-green-600">Sign In</button>
+          <p className="mt-4 text-center">Don't have an account? <a href="/signup" className="text-green-700">Sign Up</a></p>
         </form>
       </div>
     </section>

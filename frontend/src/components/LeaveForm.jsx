@@ -92,7 +92,7 @@ const LeaveForm = ({ leaveRequest, onSubmit }) => {
         </div>
         <button
           type="submit"
-          className="w-full py-2 bg-blue-500 text-white rounded hover:bg-blue-600"
+          className="w-full py-2 bg-green-700 text-white rounded hover:bg-green-600"
           disabled={loading}
         >
           {loading ? 'Submitting...' : (leaveRequest ? 'Update Leave Request' : 'Submit Leave Request')}

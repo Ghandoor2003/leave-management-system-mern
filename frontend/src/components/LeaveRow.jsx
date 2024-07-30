@@ -56,7 +56,7 @@ const LeaveRow = ({ leave, userRole }) => {
 
       const updatedLeave = await response.json();
       console.log('Leave request refused:', updatedLeave);
-      refresh
+      refresh();
     } catch (error) {
       console.error('Error refusing leave request:', error);
       alert('Failed to refuse leave request');

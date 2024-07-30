@@ -30,7 +30,7 @@ const Profile = () => {
 
   const handleLogout = () => {
     localStorage.removeItem('token');
-    window.location.href = '/login'; // Redirect to login page or home page
+    window.location.href = '/login';
   };
 
   if (loading) {
@@ -38,12 +38,11 @@ const Profile = () => {
   }
 
   if (error) {
-    return <div className="text-red-500">Error: {error}</div>;
+    return <div className="text-gray-500">Error: {error}</div>;
   }
 
   return (
-    <div className="bg-white shadow-lg rounded-lg p-4">
-      <h2 className="text-2xl font-semibold mb-4">Profile Information</h2>
+    <div className="bg-transparent rounded-lg p-4">
       {user ? (
         <div>
           <p><strong>Name:</strong> {user.name}</p>
@@ -51,7 +50,7 @@ const Profile = () => {
           <p><strong>Role:</strong> {user.role}</p>
           <button
             onClick={handleLogout}
-            className="mt-4 px-4 py-2 bg-red-500 text-white rounded hover:bg-red-600"
+            className="mt-4 px-4 py-2 bg-gray-500 text-white rounded hover:bg-gray-600"
           >
             Logout
           </button>
